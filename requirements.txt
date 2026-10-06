@@ -1,0 +1,28 @@
+# Requirements for the 16-qubit local tutorial (Quantum_Code.ipynb /
+# Quantum_Code_16q_tutorial.ipynb) and for both IBM neutron-scattering tutorials.
+# Tested with Python 3.13. The qiskit-ibm-* packages are only needed for real
+# IBM hardware or Serverless; the local tutorial runs without an account.
+
+# Qiskit SDK v2 (with circuit-drawing extras)
+qiskit[visualization]>=2.0,<3
+
+# IBM hardware access (EstimatorV2, QiskitRuntimeService)
+qiskit-ibm-runtime>=0.40.1
+
+# Qiskit Serverless client. Must be >=0.20: older catalog releases pull in a
+# qiskit-serverless that crashes on import with recent qiskit-ibm-runtime
+# ("No module named 'qiskit_ibm_runtime.runtime_job'").
+qiskit-ibm-catalog>=0.20
+
+# AQC + tensor-network stack (pinned to the version the tutorials specify)
+qiskit-addon-aqc-tensor[quimb-jax]==0.3.1
+qiskit-quimb
+
+# Scientific Python (SciPy >=1.14 is needed for the COBYQA optimizer)
+numpy
+scipy>=1.14
+matplotlib
+
+# Notebook environment
+jupyter
+ipykernel
